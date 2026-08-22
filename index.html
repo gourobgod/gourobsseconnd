@@ -216,6 +216,150 @@
                 font-size: 19px;
             }
         }
+ /* COLLAPSIBLE SECTIONS */
+
+details.card {
+    cursor: pointer;
+}
+
+summary {
+    color: #00eaff;
+    font-size: 24px;
+    font-weight: bold;
+    list-style: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* PLUS SIGN */
+
+summary::after {
+    content: "+";
+    font-size: 30px;
+    color: #00eaff;
+}
+
+/* MINUS SIGN WHEN OPEN */
+
+details[open] summary::after {
+    content: "−";
+}
+
+/* CONTENT INSIDE */
+
+.content {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 234, 255, 0.25);
+}
+
+/* OPENING ANIMATION */
+
+details[open] .content {
+    animation: openSection 0.3s ease;
+}
+
+@keyframes openSection {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+So the end of your <style> section should look like this:
+
+<style>
+
+    /* Your old CSS */
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #aaa;
+    }
+
+
+    /* COLLAPSIBLE SECTIONS */
+
+    details.card {
+        cursor: pointer;
+    }
+
+    summary {
+        color: #00eaff;
+        font-size: 24px;
+        font-weight: bold;
+        list-style: none;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    summary::after {
+        content: "+";
+        font-size: 30px;
+        color: #00eaff;
+    }
+
+    details[open] summary::after {
+        content: "−";
+    }
+
+    .content {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0, 234, 255, 0.25);
+    }
+
+    details[open] .content {
+        animation: openSection 0.3s ease;
+    }
+
+    @keyframes openSection {
+
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+        h1 {
+            font-size: 38px;
+        }
+
+    }
+
+</style>
+    
     </style>
 </head>
 
@@ -246,48 +390,63 @@
         <main>
 
             <!-- ABOUT -->
-            <section class="card">
+            <details class="card">
 
-                <h2>👋 About Me</h2>
+    <summary>👋 About Me</summary>
 
-                <p>
-                    I am learning HTML and trying to build simple websites.
-                    I am also trying to avoid my phone addiction!
-                </p>
+    <div class="content">
 
-            </section>
+        <p>
+            I am learning HTML and trying to build simple websites.
+            I am also trying to avoid my phone addiction!
+        </p>
+
+    </div>
+
+</details>
 
 
             <!-- THINGS I LIKE -->
-            <section class="card">
+<details class="card">
 
-                <h2>❤️ Things I Like</h2>
+    <summary>❤️ Things I Like</summary>
 
-                <ul>
-                    <li>Watching movies and series</li>
-                    <li>Listening to music</li>
-                    <li>Traveling</li>
-                    <li>Exploring the Himalayas</li>
-                </ul>
+    <div class="content">
 
-            </section>
+        <ul>
 
+            <li>🎬 Watching movies and series</li>
+
+            <li>🎵 Listening to music</li>
+
+            <li>✈️ Traveling</li>
+
+            <li>🏔️ Exploring the Himalayas</li>
+
+        </ul>
+
+    </div>
+
+</details>
 
             <!-- PHOTOGRAPHY -->
-            <section class="card">
+            <details class="card">
 
-                <h2>📸 Photography</h2>
+    <summary>📸 Photography</summary>
 
-                <p>
-                    Some moments I've captured.
-                </p>
+    <div class="content">
 
-                <img src="photo1.jpg"
-                     alt="My photography"
-                     class="photo">
+        <p>
+            Some moments I've captured.
+        </p>
 
-            </section>
+        <img src="photo1.jpg"
+             alt="My photography"
+             class="photo">
 
+    </div>
+
+</details>
 
             <!-- HIMALAYAN ADVENTURE -->
             <section class="card">
@@ -306,52 +465,65 @@
 
 
             <!-- CURRENTLY -->
-            <section class="card">
+           
+<details class="card">
 
-                <h2>📚 Currently</h2>
+    <summary>📚 Currently</summary>
 
-                <p>
-                    <b>Learning:</b>
-                    Integration, Current Electricity, Organic Chemistry
-                </p>
+    <div class="content">
 
-                <p>
-                    🎬 <b>Watching:</b>
-                    Breaking Bad and Peaky Blinders
-                </p>
+        <p>
+            <b>Learning:</b>
+            Integration, Current Electricity, Organic Chemistry
+        </p>
 
-                <p>
-                    🏔️ <b>Dreaming about:</b>
-                    The Himalayas
-                </p>
+        <p>
+            🎬 <b>Watching:</b>
+            Breaking Bad and Peaky Blinders
+        </p>
 
-                <p>
-                    🎯 <b>Working on:</b>
-                    HTML
-                </p>
+        <p>
+            🏔️ <b>Dreaming about:</b>
+            The Himalayas
+        </p>
 
-                <p>
-                    📵 <b>Challenge:</b>
-                    Spending less time on my phone
-                </p>
+        <p>
+            🎯 <b>Working on:</b>
+            HTML
+        </p>
 
-            </section>
+        <p>
+            📵 <b>Challenge:</b>
+            Spending less time on my phone
+        </p>
 
+    </div>
+
+</details>
 
             <!-- GOALS -->
-            <section class="card">
 
-                <h2>🎯 My Goals</h2>
+<details class="card">
 
-                <ol>
-                    <li>Complete EBC and ABC</li>
-                    <li>Finish my HSC syllabus</li>
-                    <li>Get 8 hours of sleep</li>
-                    <li>Start something meaningful</li>
-                </ol>
+    <summary>🎯 My Goals</summary>
 
-            </section>
+    <div class="content">
 
+        <ol>
+
+            <li>Complete EBC and ABC</li>
+
+            <li>Finish my HSC syllabus</li>
+
+            <li>Get 8 hours of sleep</li>
+
+            <li>Start something meaningful</li>
+
+        </ol>
+
+    </div>
+
+</details>
 
             <!-- QUOTE -->
             <section class="card">
@@ -373,30 +545,35 @@
         <!-- RIGHT SIDEBAR -->
         <aside class="sidebar">
 
-            <h2>🌟 My Favorites</h2>
+            <details class="card">
 
-            <p>
-                🎬 <b>Movie:</b><br>
-                Yeh Jawaani Hai Deewani
-            </p>
+    <summary>🌟 My Favorites</summary>
 
-            <p>
-                🎵 <b>Music:</b><br>
-                The Night We Met
-            </p>
+    <div class="content">
 
-            <p>
-                🏔️ <b>Place:</b><br>
-                Himalayas
-            </p>
+        <p>
+            🎬 <b>Movie:</b>
+            Yeh Jawaani Hai Deewani
+        </p>
 
-            <p>
-                📚 <b>Subject:</b><br>
-                Physics
-            </p>
+        <p>
+            🎵 <b>Music:</b>
+            The Night We Met
+        </p>
 
-            <hr>
+        <p>
+            🏔️ <b>Place:</b>
+            Himalayas
+        </p>
 
+        <p>
+            📚 <b>Subject:</b>
+            Physics
+        </p>
+
+    </div>
+
+</details>
 
             <!-- NUMBER GAME -->
             <h3>🎮 Guess the Number</h3>
