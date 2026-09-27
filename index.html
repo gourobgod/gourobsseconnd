@@ -433,7 +433,7 @@ So the end of your <style> section should look like this:
 <!-- MOVIES & SERIES -->
 <details class="card">
 
-    <summary>🎬 Movies & Series</summary>
+    <summary> Movies & Series</summary>
 
     <div class="content">
 
@@ -541,6 +541,28 @@ So the end of your <style> section should look like this:
 
 </details>
 
+
+<!-- MOVIE SUGGESTER -->
+<details class="card">
+
+    <summary> Movie Suggester</summary>
+
+    <div class="content">
+
+        <p>
+            Can't decide what to watch?
+            Let me choose for you.
+        </p>
+
+        <button onclick="suggestMovie()">
+             Surprise Me
+        </button>
+
+        <p id="movieSuggestion"></p>
+
+    </div>
+
+</details>
 
             
             <!-- PHOTOGRAPHY -->
@@ -860,6 +882,96 @@ So the end of your <style> section should look like this:
         }
     }
 
+    const movies = [
+    "Zindagi Na Milegi Dobara ⭐⭐⭐",
+    "Yeh Jawaani Hai Deewani ⭐⭐⭐",
+    "Tamasha ⭐⭐⭐",
+    "Wake Up Sid",
+    "October",
+    "Shaadi Mein Zaroor Aana",
+    "The Pursuit of Happyness ⭐",
+    "500 Days of Summer",
+    "Into the Wild ⭐⭐⭐",
+    "Eternal Sunshine of the Spotless Mind",
+    "La La Land",
+    "Diya",
+    "Grave of the Fireflies ⭐",
+    "Hridayam",
+    "Meiyazhagan ⭐",
+    "96 ⭐",
+    "3 Idiots ⭐⭐⭐",
+    "Brothers ⭐",
+    "Laila Majnu",
+    "Fury",
+    "All Quiet on the Western Front",
+    "Interstellar ⭐",
+    "Jab We Met",
+    "Spider-Man",
+    "Spider-Man 2",
+    "Spider-Man: Far From Home",
+    "Spider-Man: No Way Home",
+    "Spider-Man: Homecoming",
+    "The Amazing Spider-Man",
+    "Taare Zameen Par",
+    "Titanic",
+    "Triangle",
+    "Aashiqui 2",
+    "Saving Private Ryan",
+    "The Green Mile",
+    "Pirates of the Caribbean (3)",
+    "American Psycho",
+    "Modern Times",
+    "12th Fail",
+    "Toy Story",
+    "Green Book",
+    "Apocalypto ⭐",
+    "Forrest Gump ⭐",
+    "The Covenant",
+    "Piku ⭐",
+    "PK",
+    "Dunkirk",
+    "Laapataa Ladies",
+    "Before Sunrise",
+    "Oppenheimer",
+    "Premalu",
+    "Rockstar ⭐",
+    "The Dictator ⭐",
+    "Qarib Qarib Singlle ⭐",
+    "Pirates of Somalia",
+    "Masaan ⭐",
+    "One Day ⭐",
+    "Atonement ⭐",
+    "Hacksaw Ridge",
+    "Pride & Prejudice",
+    "Me Before You",
+    "The Notebook",
+    "Noukadubi ⭐",
+    "John Wick",
+    "Fight Club ⭐",
+    "The Motorcycle Diaries",
+    "Darkercopy",
+    "How to Lose a Guy in 10 Days",
+    "Devdas",
+    "KGF",
+    "KGF 2",
+    "Once We Were Us",
+    "The Shawshank Redemption ⭐",
+    "The Pianist",
+    "Tere Ishk Mein",
+    "Dead Poets Society ⭐",
+    "Kung Fu Hustle",
+    "Edge of Love",
+    "Good Will Hunting ⭐",
+    "Barfi!"
+];
+
+function suggestMovie() {
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    const movie = movies[randomIndex];
+
+    document.getElementById("movieSuggestion").textContent =
+        "🎬 Tonight's pick: " + movie;
+}
 </script>
 
 </body>
